@@ -1,0 +1,63 @@
+# --- Window Layout & Options --- #
+own_window yes
+own_window_colour brown
+own_window_transparent yes
+own_window_type override
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+double_buffer yes
+use_spacer right
+use_xft yes
+alignment top_right
+gap_x 10
+gap_y 20
+
+# --- Colours, Sizes, Fonts & Margins --- #
+update_interval 1
+maximum_width 300
+stippled_borders 5
+border_margin 5
+border_width 10
+default_color grey
+
+# --- Text --- #
+draw_outline no
+draw_borders no
+font Nova Square:size=9.5weight=100
+uppercase no
+draw_shades yes
+
+TEXT 
+
+${color orange}SYSTEM INFORMATION ${hr 3}$color
+${goto 100}${font bold :size=17}${color #862922}${time %H:%M:%S}${font}${offset -200}${voffset 9}${color #705753}${hr 1}
+${color white}${time %e}/${time %m}/${time %G}
+${color white}Machine$color ${color #862922}$nodename ${alignr}${color white}Uptime$color $uptime
+${color white}Kernel$color  $kernel ${alignr}${color white}Ubuntu $color $machine
+
+${color orange}CPU ${hr 3}$color
+${font Monospace:size=10}${color #ff9999}${execi 99999 cat /proc/cpuinfo | grep "model name" -m1 | cut -d":" -f2 | cut -d" " -f2- | sed 's#Processor ##'}$font$color
+${color white}Freq:${goto 60}${freq_g 2}GHz ${goto 140}${color white}Processes:$color $running_processes/ $processes
+${color #ff6600}${cpubar cpu1 3,300} ${color #cc0033}$color
+${color white}CPU 0${goto 60}${cpugraph cpu0 25,252 000000 862922 }
+${color white}CPU 1${goto 60}${cpugraph cpu1 25,252 000000 ff6600 }
+${color white}CPU 2${goto 60}${cpugraph cpu2 25,252 000000 ff6600 }
+
+Fan 1 : ${execi 1 /usr/bin/sensors | grep fan1 | paste -s | cut -c 12-16 | fold -w50| fold -w50}rpm
+#Помощно ръководство за температурата на твърдия диск
+#http://beta.sa-sa.eu/2011/02/06/%D0%BA%D0%B0%D0%BA-%D0%B4%D0%B0-hddtemp-%D0%B8-coretemp-%D0%B7%D0%B0-conky/
+Hdd Temp: ${execi 10 hddtemp /dev/sda |cut -c36-40}
+
+${color orange}TOP 10 PROCESSES ${hr 3}$color
+${color #ff9999}NAME ${goto 143}PID ${goto 203}CPU ${goto 253}MEM
+${color #ffff99}1. ${top name 1} ${goto 135}${top pid 1} ${goto 190}${top cpu 1} ${goto 250}${top mem 1}$color
+2. ${top name 2} ${goto 135}${top pid 2} ${goto 190}${top cpu 2} ${goto 250}${top mem 2}
+3. ${top name 3} ${goto 135}${top pid 3} ${goto 190}${top cpu 3} ${goto 250}${top mem 3}
+4. ${top name 4} ${goto 135}${top pid 4} ${goto 190}${top cpu 4} ${goto 250}${top mem 4}
+5. ${top name 5} ${goto 135}${top pid 5} ${goto 190}${top cpu 5} ${goto 250}${top mem 5}
+6. ${top name 6} ${goto 135}${top pid 6} ${goto 190}${top cpu 6} ${goto 250}${top mem 6}
+7. ${top name 7} ${goto 135}${top pid 7} ${goto 190}${top cpu 7} ${goto 250}${top mem 7}
+8. ${top name 8} ${goto 135}${top pid 8} ${goto 190}${top cpu 8} ${goto 250}${top mem 8}
+9. ${top name 9} ${goto 135}${top pid 9} ${goto 190}${top cpu 9} ${goto 250}${top mem 9}
+10. ${top name 10} ${goto 135}${top pid 10} ${goto 190}${top cpu 10} ${goto 250}${top mem 10}
+${color orange}${hr 3}

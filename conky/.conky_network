@@ -1,0 +1,77 @@
+own_window yes
+own_window_colour brown
+own_window_transparent yes
+own_window_type override
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+double_buffer yes
+use_spacer right
+use_xft yes
+alignment top_right
+gap_x 325
+gap_y 20
+
+update_interval 1
+maximum_width 275
+stippled_borders 3
+border_margin 9
+border_width 10
+default_color grey
+
+draw_outline no
+draw_borders no
+font Nova Square:size=9.5weight=100
+uppercase no
+draw_shades yes
+
+TEXT
+
+${color orange}RouterIP : ${execi 7200 /usr/bin/wget http://checkip.dyndns.org/ -q -O - | grep -Eo '\<[[:digit:]]{1,3}(\.[[:digit:]]{1,3}){3}\>'} ${hr 3}$color
+${color orange}My Network Address ${hr 3}$color
+${color #705753}Interface ${goto 120}IP$color
+${color white}eth1 ${goto 85}${addr eth1}$color
+${color white}eth1:0 ${goto 85}${addr eth1:0}$color 
+${color white}eth1:1 ${goto 85}${addr eth1:1}$color 
+${color white}eth1:2 ${goto 85}${addr eth1:2}$color 
+${color white}eth1:3 ${goto 85}${addr eth1:3}$color
+${color white}eth1:4 ${goto 85}${addr eth1:4}$color 
+${color orange}${hr 1}$color
+${color white}Down:$color ${downspeed eth1} KB/s${alignr}${color white}Up:$color ${upspeed eth1} KB/s
+${downspeedgraph eth1 25,130 000000 00ff00} ${alignr}${upspeedgraph eth1 25,130 000000 ff0000}$color
+${color #705753}Total Upload:   ${alignr 1}${totalup eth1}
+${color #705753}Total Download: ${alignr 1}${totaldown eth1}
+${color orange}${hr 1}$color
+${color}open ports: ${alignr}${color2}${tcp_portmon 1 65535 count}
+${color}${offset 10}IP Address${alignr}DPORT
+${color1}${tcp_portmon 1 65535 rip  0}${alignr 1}${tcp_portmon 1 65535 rport  0}
+${color1}${tcp_portmon 1 65535 rip  1}${alignr 1}${tcp_portmon 1 65535 rport  1}
+${color1}${tcp_portmon 1 65535 rip  2}${alignr 1}${tcp_portmon 1 65535 rport  2}
+${color1}${tcp_portmon 1 65535 rip  3}${alignr 1}${tcp_portmon 1 65535 rport  3}
+${color1}${tcp_portmon 1 65535 rip  4}${alignr 1}${tcp_portmon 1 65535 rport  4}
+${color1}${tcp_portmon 1 65535 rip  5}${alignr 1}${tcp_portmon 1 65535 rport  5}
+${color1}${tcp_portmon 1 65535 rip  6}${alignr 1}${tcp_portmon 1 65535 rport  6}
+${color1}${tcp_portmon 1 65535 rip  7}${alignr 1}${tcp_portmon 1 65535 rport  7}
+${color1}${tcp_portmon 1 65535 rip  8}${alignr 1}${tcp_portmon 1 65535 rport  8}
+${color1}${tcp_portmon 1 65535 rip  9}${alignr 1}${tcp_portmon 1 65535 rport  9}
+${color1}${tcp_portmon 1 65535 rip 10}${alignr 1}${tcp_portmon 1 65535 rport 10}
+${color1}${tcp_portmon 1 65535 rip 11}${alignr 1}${tcp_portmon 1 65535 rport 11}
+${color1}${tcp_portmon 1 65535 rip 12}${alignr 1}${tcp_portmon 1 65535 rport 12}
+${color1}${tcp_portmon 1 65535 rip 13}${alignr 1}${tcp_portmon 1 65535 rport 13}
+${color1}${tcp_portmon 1 65535 rip 14}${alignr 1}${tcp_portmon 1 65535 rport 14}
+${color1}${tcp_portmon 1 65535 rip 15}${alignr 1}${tcp_portmon 1 65535 rport 15}
+${color1}${tcp_portmon 1 65535 rip 16}${alignr 1}${tcp_portmon 1 65535 rport 16}
+${color1}${tcp_portmon 1 65535 rip 17}${alignr 1}${tcp_portmon 1 65535 rport 17}
+${color1}${tcp_portmon 1 65535 rip 18}${alignr 1}${tcp_portmon 1 65535 rport 18}
+${color1}${tcp_portmon 1 65535 rip 19}${alignr 1}${tcp_portmon 1 65535 rport 19}
+${color1}${tcp_portmon 1 65535 rip 20}${alignr 1}${tcp_portmon 1 65535 rport 20}
+${color1}${tcp_portmon 1 65535 rip 21}${alignr 1}${tcp_portmon 1 65535 rport 21}
+${color1}${tcp_portmon 1 65535 rip 22}${alignr 1}${tcp_portmon 1 65535 rport 22}
+${color1}${tcp_portmon 1 65535 rip 23}${alignr 1}${tcp_portmon 1 65535 rport 23}
+${color orange}${hr 1}$color
+${color #705753}95.111.87.12${alignr 1}${execi 360 ~/conky/pingtest.sh 95.111.87.12}
+${color #705753}95.111.87.13${alignr 1}${execi 360 ~/conky/pingtest.sh 95.111.87.13}
+${color #705753}95.111.87.14${alignr 1}${execi 360 ~/conky/pingtest.sh 95.111.87.13}
+${color #705753}95.111.87.16${alignr 1}${execi 360 ~/conky/pingtest.sh 95.111.87.16}
+${color #705753}95.111.102.32${alignr 1}${execi 360 ~/conky/pingtest.sh 95.111.102.32}
+${color #705753}78.90.149.46${alignr 1}${execi 360 ~/conky/pingtest.sh 78.90.149.46}

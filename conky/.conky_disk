@@ -1,0 +1,69 @@
+own_window yes
+own_window_colour brown
+own_window_transparent yes
+own_window_type override
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+double_buffer yes
+use_spacer right
+use_xft yes
+alignment top_left
+gap_x 540
+gap_y 20
+
+update_interval 1.0
+maximum_width 320
+stippled_borders 3
+border_margin 9
+border_width 10
+default_color grey
+
+draw_outline no
+draw_borders no
+font Nova Square:size=9.5weight=100
+uppercase no
+draw_shades yes
+
+TEXT
+
+${color orange}MEMORY & SWAP ${hr 3}$color
+${color #3366FF}RAM ${goto 55}$memmax ${goto 110}$memperc% ${goto 140}${membar 13,100} ${goto 250}$mem$color
+${color #3366FF}Swap ${goto 55}$swapmax ${goto 110}$swapperc% ${goto 140}${swapbar 13,100} ${goto 250}$swap$color
+
+${color orange}DRIVES - SPACE ${hr 3}$color
+${color #ff9999}NAME ${goto 87}Free ${goto 150}Free ${goto 216}Space
+${color white}Root$color  ${goto 85}${fs_free_perc /}% ${goto 140}${fs_free /} ${goto 210}${fs_size /}
+${fs_bar 10,290 /}
+${color orange}${hr 1}$color
+${color white}Home$color  ${goto 85}${fs_free_perc /home/npstr}%${goto 140}${fs_free /home/npstr} ${goto 210}${fs_size /home/npstr}
+${fs_bar 10,290 /home/npstr}
+${color orange}${hr 1}$color
+${color white}My Files$color  ${goto 85}${fs_free_perc /media/My Files}%${goto 140}${fs_free /media/My Files} ${goto 210}${fs_size /media/My Files}
+${fs_bar 10,290 /media/My Files}
+${color orange}${hr 1}$color
+${color white}Ivaylo$color  ${goto 85}${fs_free_perc /media/Ivaylo-Docs}%${goto 140}${fs_free /media/Ivaylo-Docs} ${goto 210}${fs_size /media/Ivaylo-Docs}
+${fs_bar 10,290 /media/Ivaylo-Docs}
+${color orange}${hr 1}$color
+${color white}Asq$color  ${goto 85}${fs_free_perc /media/Asq-Docs}%${goto 140}${fs_free /media/Asq-Docs} ${goto 210}${fs_size /media/Asq-Docs}
+${fs_bar 10,290 /media/Asq-Docs}
+${color orange}${hr 1}$color
+${color white}Torrent$color  ${goto 85}${fs_free_perc /media/Torrent}%${goto 140}${fs_free /media/Torrent} ${goto 210}${fs_size /media/Torrent}
+${fs_bar 10,290 /media/Torrent}
+${color orange}${hr 1}$color
+${color white}Books$color  ${goto 85}${fs_free_perc /media/Books}%${goto 140}${fs_free /media/Books} ${goto 210}${fs_size /media/Books} 
+${fs_bar 10,290 /media/Books}
+${color orange}${hr 1}$color
+${color white}Films$color  ${goto 85}${fs_free_perc /media/Films}%${goto 140}${fs_free /media/Films} ${goto 210}${fs_size /media/Films} 
+${fs_bar 10,290 /media/Films}
+${color orange}${hr 1}$color
+${color white}Music$color  ${goto 85}${fs_free_perc /media/Music}%${goto 140}${fs_free /media/Music} ${goto 210}${fs_size /media/Music} 
+${fs_bar 10,290 /media/Music}
+${color orange}${hr 1}$color
+${color white}Arhive$color  ${goto 85}${fs_free_perc /media/www-arhive}%${goto 140}${fs_free /media/www-arhive} ${goto 210}${fs_size /media/www-arhive}
+${fs_bar 10,290 /media/www-arhive}
+${color orange}${hr 1}$color
+${color white}htdocs$color  ${goto 85}${fs_free_perc /media/htdocs}%${goto 140}${fs_free /media/htdocs} ${goto 210}${fs_size /media/htdocs} 
+${fs_bar 10,290 /media/htdocs}
+${color orange}${hr 3}$color
+${alignc}${color lightblue}ivo.pcboy@gmail.com (npstr)$color
